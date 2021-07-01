@@ -9,3 +9,9 @@ Homestead.yaml
 .phpunit.result.cache
 /database/database.sqlite
 /.docker
+
+!*.gitignore
+
+Dependence-Injection-Container/vendor
+Dependence-Injection-Container/html
+Dependence-Injection-Container/cache
