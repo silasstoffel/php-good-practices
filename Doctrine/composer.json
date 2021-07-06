@@ -1,0 +1,22 @@
+{
+    "name": "php-laboratory/doctrine",
+    "description": "Labs Doctrine",
+    "type": "none",
+    "license": "public",
+    "autoload": {
+        "psr-4": {
+            "PHPLaboratory\\Doctrine\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Silas Stoffel",
+            "email": "silasstofel@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.9",
+        "symfony/yaml": "2.*",
+        "symfony/cache": "^5.3"
+    }
+}
