@@ -12,6 +12,10 @@ Homestead.yaml
 
 !*.gitignore
 
+*vendor
+
 Dependence-Injection-Container/vendor
 Dependence-Injection-Container/html
 Dependence-Injection-Container/cache
+
+Doctrine/vendor
