@@ -5,26 +5,32 @@ namespace Alura\Leilao\Tests\Integration\Data;
 
 use Alura\Leilao\Model\Leilao;
 use Alura\Leilao\Dao\Leilao as EntityDao;
-use Alura\Leilao\Infra\ConnectionCreator;
-use PDO;
+use \PDO;
 use PHPUnit\Framework\TestCase;
 
 class LeilaoDaoTest extends TestCase
 {
 
 
-    private \PDO $pdo;
+    private static \PDO $pdo;
+
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        static::$pdo = new \PDO('sqlite::memory:');
+        $table = 'CREATE TABLE leiloes (id INTEGER PRIMARY KEY, descricao TEXT, finalizado BOOL, dataInicio TEXT)';
+        static::$pdo->exec($table);
+    }
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->pdo = ConnectionCreator::getConnection();
-        $this->pdo->beginTransaction();
+        static::$pdo->beginTransaction();
     }
 
     protected function tearDown(): void
     {
-        $this->pdo->rollBack();
+        static::$pdo->rollBack();
     }
 
     public function testInsertAndSearchNeedWorks()
@@ -32,7 +38,7 @@ class LeilaoDaoTest extends TestCase
         // arrange
         $description = 'Tempra Turbo 2.3';
         $entity = new Leilao($description);
-        $entityDao = new EntityDao($this->pdo);
+        $entityDao = new EntityDao(static::$pdo);
         $entityDao->salva($entity);
 
         // act
