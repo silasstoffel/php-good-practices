@@ -20,7 +20,7 @@ class LeilaoDaoTest extends TestCase
         $entityDao->salva($entity);
 
         $items = $entityDao->recuperarNaoFinalizados();
-        self::assertContains(1, $items);
+        self::assertCount(1, $items);
         self::assertContainsOnlyInstancesOf(Leilao::class, $items);
         self::assertSame($description, $items[0]->recuperarDescricao());
     }
