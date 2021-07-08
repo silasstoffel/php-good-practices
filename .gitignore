@@ -19,3 +19,4 @@ Dependence-Injection-Container/html
 Dependence-Injection-Container/cache
 
 Doctrine/vendor
+Integration-Tests/testdox.txt
