@@ -77,6 +77,28 @@ class LeilaoDaoTest extends TestCase
         );
     }
 
+    public function testWhenUpdateAuctionStatusMustBeChanged()
+    {
+        // When Updating Auction status must be changed
+
+        // arrange
+        $auction = new Leilao('Argo 1.3 Drive');
+        $auctionDao = new EntityDao(self::$pdo);
+        $auctionDao->salva($auction);
+        $auction->finaliza();
+
+        // act
+        $auctionDao->salva($auction);
+
+        // asserts
+        $auctions = $auctionDao->recuperarFinalizados();
+        static::assertCount(1, $auctions);
+        static::assertSame(
+            $auction->recuperarDescricao(),
+            $auctions[0]->recuperarDescricao()
+        );
+    }
+
     public function auctions(): array
     {
         $notFinished = new Leilao('Tempra Turbo 2.3');
