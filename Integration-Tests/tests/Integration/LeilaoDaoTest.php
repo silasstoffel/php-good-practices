@@ -97,6 +97,7 @@ class LeilaoDaoTest extends TestCase
             $auction->recuperarDescricao(),
             $auctions[0]->recuperarDescricao()
         );
+        static::assertTrue($auctions[0]->estaFinalizado());
     }
 
     public function auctions(): array
