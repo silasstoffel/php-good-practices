@@ -1,10 +1,14 @@
 <?php
 
 use PHPLaboratory\Doctrine\Entities\Product;
+use PHPLaboratory\Doctrine\Helper\EntityManageFactory;
 
 require '../../vendor/autoload.php';
 
-$entityManager = require('../../config/entity-manager.php');
+//$entityManager = require('../../config/entity-manager.php');
+
+$entityManagerFactory = new EntityManageFactory();
+$entityManager = $entityManagerFactory->getEntityManager();
 
 $name = 'Product '. rand();
 

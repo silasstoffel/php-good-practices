@@ -1,6 +1,11 @@
 <?php
 
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use PHPLaboratory\Doctrine\Helper\EntityManageFactory;
+
 require './vendor/autoload.php';
-$entityManage = require('./config/entity-manager.php');
-return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);
+
+return ConsoleRunner::createHelperSet(
+    (new EntityManageFactory())->getEntityManager()
+);
 

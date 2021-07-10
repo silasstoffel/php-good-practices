@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * No use this, use a factory
+ * @deprecated
+ */
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 

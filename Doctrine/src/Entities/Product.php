@@ -19,7 +19,7 @@ class Product
     /**
      * @ORM\Column(type="string")
      */
-    private $name;
+    private string $name;
 
 
     public function setName(string $name): self
