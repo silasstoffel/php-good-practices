@@ -6,7 +6,8 @@ use PHPLaboratory\Doctrine\Helper\EntityManageFactory;
 require '../../vendor/autoload.php';
 
 $student = new Student();
-$student->setName('Silas Stoffel');
+$name = 'Student '. rand();
+$student->setName($name);
 
 $entityManageFactory = new EntityManageFactory();
 $entityManage = $entityManageFactory->getEntityManager();
