@@ -1,0 +1,6 @@
+
+Show SQL Schema
+vendor/bin/doctrine orm:schema-tool:create --dump-sql
+
+Run schema in database
+vendor/bin/doctrine orm:schema-tool:create
