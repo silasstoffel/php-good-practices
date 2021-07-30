@@ -7,10 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class VideoTest extends TestCase
 {
-    public function testMakingAVideoMustWork()
+    public function testMakingAVideoPublicMustWork()
     {
         $video = new Video();
-        // $video->checkIfVisibilityIsValidAndUpdateIt(Video::PUBLIC);
         $video->publish();
 
         self::assertTrue($video->isPublic());
